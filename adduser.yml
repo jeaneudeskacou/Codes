@@ -1,0 +1,17 @@
+- hosts: all
+  remote_user: root
+  tasks:
+  
+  - name: Creation de user-ansible
+    user:
+      name: user-ansible
+      password: "{{ 'passwd' | password_hash('sha512', 'sceretsalt') }}"
+   
+  - name: Ajout au group wheel
+    user:
+      name: user-ansible
+      groups: wheel
+      append: yes
+    register: reg
+    environment:
+      Server_name: reg 

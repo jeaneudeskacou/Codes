@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+    - name: Get ansible host
+      shell: echo hello
+      register: reg
+    - debug:
+        var: ansible_facts

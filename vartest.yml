@@ -1,0 +1,9 @@
+- hosts: all
+  remote_user: root
+  tasks:
+  - name: Test pass var to python script
+    shell: echo hello
+    register: reg
+
+  - shell: /home/heliosys/testansible/env.py "{{ reg }}"
+    when: ansible_distribution == "Ubuntu"

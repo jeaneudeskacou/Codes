@@ -1,0 +1,9 @@
+- hosts: localhost
+  remote_user: heliosys
+  tasks:
+    - name: HelloWorld
+      shell: echo helloworld
+      register: reg
+      environment:
+        NEWVAR:
+    - debug: var=reg
